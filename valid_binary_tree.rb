@@ -85,23 +85,6 @@ module Tree
     end
 
   end
-
-  class EmptyNode < Node
-    def initialize(val)
-      @value = val
-      @left = EmptyNode.new
-      @right = EmptyNode.new
-    end
-
-    def include?(*)
-      false
-    end
-
-    def insert(*)
-      false
-    end
-  end
-
 end
 
 node = Tree::Node.new(1)
