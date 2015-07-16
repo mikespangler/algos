@@ -7,17 +7,17 @@ class Trie < Hash
   def insert(string)
     string.chars.each_with_index.inject(self) do |h, (char, i)|
 
-      h[char] ||= {}
-
       if i == (string.length) - 1
+        h[char] ||= {}
         h[char][:end] = true
       end
 
+      h[char] ||= {}
     end
   end
 
   def include?(string)
-    if find(string) == :end
+    if find(string) && find(string).has_key?(:end)
       true
     else
       false
@@ -30,7 +30,7 @@ class Trie < Hash
       subtree = subtree[char]
       return false if subtree.nil?
     end
-    return subtree
+    subtree
   end
 end
 
@@ -40,7 +40,7 @@ trie.insert('doughnut')
 trie.insert('doldrums')
 trie.insert('doldrum')
 trie.insert('defenestrate')
-# puts trie.include?('doldrum')
-# puts trie.include?('doldrums')
-# puts trie.include?('cocks')
+puts trie.include?('doldrumo')
+puts trie.include?('doldrums')
+puts trie.include?('kombucha')
 puts trie.inspect
