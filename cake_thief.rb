@@ -25,7 +25,6 @@ def max_duffle_bag_value(cakes, duffle_capacity)
 
     current_cake = cakes.max_by {|c| c.total_value}
     remaining_capacity -= (remaining_capacity / current_cake.weight) * current_cake.weight
-    binding.pry
     cakes = cakes - [current_cake]
     total_value += current_cake.total_value
   end
