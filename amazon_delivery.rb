@@ -11,7 +11,7 @@ end
 end
 
 
-# O(n) time & space
+# O(n) time & O(n) space
 
 def find_undelivered_breakfast(delivery_ids)
   hash = {}
